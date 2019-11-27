@@ -1,0 +1,641 @@
+1f7a
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8; no-cache">
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="No-Cache" />
+<!-- BEGIN:SET DOCUMENT DOMAIN -->
+<script language="javascript">
+//if(document.URL.indexOf('knou.ac.kr')!=-1) document.domain='knou.ac.kr';
+// 2011.3.31/나상모/웹에디터(innoditor)와 충돌 문제로 onload시 domain을 설정하도록 변경.  
+function setKnouDomain() {
+	if(document.URL.indexOf('knou.ac.kr')!=-1) document.domain='knou.ac.kr';
+}
+
+try {
+	window.attachEvent("onload", setKnouDomain);
+} catch( e) {
+	window.addEventListener("load", setKnouDomain, false);
+}
+</script>
+
+
+<!-- END:SET DOCUMENT DOMAIN -->
+
+<!-- BEGIN: common style -->
+<link href="/css/core/default.css?ver=20110104" rel="stylesheet" type="text/css" />
+<!-- END: common style -->
+
+<!-- BEGIN: load jQuery UI theme, button css -->
+<link type="text/css" href="/css/core/flick/jquery-ui-1.8.6.custom.css" rel="stylesheet" />
+<link href="/css/core/jquery.dialog.css?ver=20110113" rel="stylesheet" type="text/css" />
+<!-- END: load jQuery UI theme -->
+		
+<!-- BEGIN: load jQuery -->
+<script type="text/javascript" src="/js/core/jquery-1.4.3.min.js"></script>
+<!-- END: load jquery -->
+
+<!-- BEGIN: load jQuery UI-->
+<script type="text/javascript" src="/js/core/jquery-ui-1.8.6.custom.min.js"></script>
+<link href="/css/core/ui.jquery.datepicker.custom.css?ver=20110120" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/core/jquery-ui.custom.js"></script>
+<script src="/js/core/jquery-ui-timepicker-addon.js?ver=20110121" type="text/javascript"></script>
+<!-- END: load jQuery UI-->
+
+<!-- BEGIN: load jQuery Form-->
+<script type="text/javascript" src="/js/core/jquery.form.js"></script>
+<!-- END: load jQuery Form-->
+
+<!-- BEGIN: load jQuery Popup-->
+<link href="/css/core/window-popup.css?ver=20110111" rel="stylesheet" type="text/css" />
+<script src="/js/core/jquery.popupWindow.js" type="text/javascript"></script>
+<!-- END: load jQuery Popup-->
+
+<!-- BEGIN: load jQuery Form-->
+<script type="text/javascript" src="/js/core/jquery.knouDialog.js?ver=20110109"></script>
+<!-- END: load jQuery Form-->
+
+<!-- BEGIN: global ajax error setting -->
+<script type="text/javascript" src="/js/core/jquery.ajaxSetup.js?ver=20110111"></script>
+<!-- END: global ajax error setting -->
+
+<!-- BEGIN: load jQuery Form-->
+<script type="text/javascript" src="/js/core/jquery.knouCommCode.js?ver=20110112"></script>
+<!-- END: load jQuery Form-->
+
+<!-- BEGIN: load knouComboBox Form-->
+<script type="text/javascript" src="/js/core/ctrl/jquery.knouComboBox.js?ver=20110112"></script>
+<!-- END: load knouComboBox Form-->
+
+<!-- BEGIN: load jquery validate Form-->
+<script type="text/javascript" src="/js/core/validate/jquery.validate.js?ver=20110124"></script>
+<!-- END: load knouValidate Form-->
+
+<!-- BEGIN: load knouValidate Form-->
+<script type="text/javascript" src="/js/core/validate/jquery.knouValidate.js?ver=20110113"></script>
+<!-- END: load knouValidate Form-->
+
+<!-- BEGIN: Select box disappears in IE6 . bug fix -->
+<script src="/js/core/jquery.bgiframe.min.js"></script>
+<!-- END: Select box disappears in IE6 . bug fix -->
+
+<!-- BEGIN: load knouJSUtil Form-->
+<script type="text/javascript" src="/js/core/util/jquery.knouJSUtil.js?ver=20110128"></script>
+<!-- END: load knouJSUtil Form-->
+
+<!-- BEGIN: load jquery Mask Input-->
+<script type="text/javascript" src="/js/core/jquery.maskedinput-1.2.2.min.js?ver=20110210"></script>
+<!-- END: load jquery Mask Input-->
+
+<!-- BEGIN: load jquery Dirty Form Field-->
+<script type="text/javascript" src="/js/core/dirtyform/jquery.dirtyFields.packed.js?ver=20110223"></script>
+<!-- END: load jquery Dirty Form Field-->
+
+<!-- BEGIN: load knouRptViewer -->
+<script type="text/javascript" src="/js/core/jquery.knouRptViewer.js?ver=20110513"></script>
+<!-- END: load knouRptViewer -->
+
+<!-- BEGIN: load simplemodal -->
+<script type="text/javascript" src="/js/core/jquery.simplemodal.1.4.1.min.js"></script>
+<!-- END: load simplemodal -->
+
+<script type="text/javascript">
+
+	/**
+	 * 목적 : F12(개발자도구) 버튼 금지
+	 * 매개변수 : 없음 
+	 * 반환값 : 없음
+	 * 개정이력 : 없음
+	 */  
+	// $(document).ready(function(){
+	
+	//    $(document).bind('keydown',function(e){
+	//        if ( e.keyCode == 123 /* F12 */) {
+	//            e.preventDefault();
+	//            e.returnValue = false;
+	//        }
+	//    });
+
+   /**
+	 * 목적 : 마우스 오른쪽 버튼 금지
+	 * 매개변수 : 없음 
+	 * 반환값 : 없음
+	 * 개정이력 : 없음
+// 	 */    
+// 	 $(document).bind("contextmenu", function(e) { 
+// 		   return false; 
+// 	 }); 
+
+//    });
+
+	// 화면 수정 여부
+	//var FORM_MODIFIED = false;
+
+	/**
+	 * 목적 : Dirty Form 옵션 지정
+	 * 매개변수 : 없음 
+	 * 반환값 : 없음
+	 * 개정이력 : 없음
+	 */ 
+	// var FORM_DIRTY_OPTIONS = {
+	// 		denoteDirtyForm: true,
+	// 		denoteDirtyOptions: true,
+	// 		trimText:true,
+	// 		fieldChangeCallback: function(originalValue,result)  {
+	// 			FORM_MODIFIED = true;
+	// 		}
+	// };
+
+	/**
+	 * 목적 : 화면 수정 여부 조회 
+	 * 매개변수 : 없음 
+	 * 반환값 : 없음
+	 * 개정이력 : 없음
+	 */ 
+	// function getModified() {
+		
+	// 	if(FORM_MODIFIED == undefined || FORM_MODIFIED == false) 
+	// 		return false;
+	// 	else 
+	// 		return true;
+	// }
+
+	/**
+	 * 목적 : 처리 진행중 표시
+	 * 매개변수 : 없음 
+	 * 반환값 : 없음
+	 * 개정이력 : 없음
+	 */
+	//  var progressbar = new Object();
+	//  progressbar.enable = true; // 사용여부
+	//  progressbar.image = "/images/core/icon/viewLoading.gif"; // 사용할 이미지 파일
+	//  /* Progress Bar 함수 */
+	//  function Progressbar() {
+	//     if (progressbar.enable) {
+	//         $("#viewLoading").modal({
+	//             overlayCss: { "background-color": "#fff", "cursor": "wait" },
+	//             containerCss: { "background-color": "#fff", "border": "0px solid #ccc" },
+	//             close: false,
+	//             closeHTML: ''
+	//         });
+	//     }
+	//  }
+
+	 /**
+	  * 목적 : Multipartform의 Escape 처리
+	  * 매개변수 : 없음 
+	  * 반환값 : 없음
+	  * 개정이력 : 없음
+	  */
+	  var tagsToReplace = {
+		    '&': '&amp;',
+		    '<': '&lt;',
+		    '>': '&gt;',
+		    '\'': '&apos;',
+		    '\"': '&quot;'
+		};
+	
+		function replaceTag(tag) {
+		    return tagsToReplace[tag] || tag;
+		}
+	
+		function knouEscape(str) {
+		    return str.replace(/[&<>'"]/g, replaceTag);
+		}
+
+		/**
+		  * 목적 : 그리드내에 Tag 입력 버그 처리
+		  * 매개변수 : 없음 
+		  * 반환값 : 없음
+		  * 개정이력 : 없음
+		  */
+	    function chkGridInput(gridId){
+	        var gr = $("#" + gridId).jqGrid('getGridParam', 'selarrrow');
+	        if (gr.length > 0) {
+	            for (var i = 0; i < gr.length; i++) {
+	                $("#" + gridId).jqGrid('saveRow', gr[i], false, 'clientArray');
+	                var ret = $('#' + gridId).jqGrid('getRowData', gr[i]);
+	                
+	                var key = "";
+	                var getVal = "";
+	                for (key in ret) {
+	                    if (ret.hasOwnProperty(key)) {
+	                    
+	                        var chkVal = ret[key];
+	                        
+	                        if (chkVal.substring(0, 6) == "<INPUT") {
+	                            getVal = $('#' + gr[i] + "_" + key).val();
+
+	                            $("#" + gridId).jqGrid('saveRow', gr[i], true, 'clientArray');
+		                        $("#" + gridId).jqGrid('editRow', gr[i], 'records', false);
+		                        $("#" + gridId).jqGrid('setColProp', key, {
+		                            editable: true
+		                        });
+		                        $("#" + gridId).jqGrid('setRowData', gr[i], {
+		                            ke
+1f7a
+y: getVal
+		                        });
+	                            
+	                        }
+
+
+	                        if (chkVal.substring(0, 7) == "<SELECT") {
+	                            getVal = $('#' + gr[i] + "_" + key).val();
+
+	                            $("#" + gridId).jqGrid('saveRow', gr[i], true, 'clientArray');
+		                        $("#" + gridId).jqGrid('editRow', gr[i], 'records', false);
+		                        $("#" + gridId).jqGrid('setColProp', key, {
+		                            editable: true
+		                        });
+		                        $("#" + gridId).jqGrid('setRowData', gr[i], {
+		                            key: getVal
+		                        });
+	                            
+	                        }
+	                        
+	                    }
+	                }
+	            }
+	        }
+	    }
+		
+</script>
+
+
+
+
+
+
+
+
+</head>  
+
+
+
+<!-- Grid -->
+<link rel="stylesheet" type="text/css" media="all" href="/css/core/jqgrid/ui.jqgrid.css?ver=20110113" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/core/jqgrid/ui.jqgrid.custom.css?ver=20110113" />
+<script src="/js/core/jqGrid/i18n/grid.locale-en.js" type="text/javascript"></script>
+<script src="/js/core/jqGrid/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="/js/core/jqGrid/json2.js" type="text/javascript"></script>
+<script src="/js/core/jqGrid/jquery.cookie.js" type="text/javascript"></script>
+<script src="/js/core/jqGrid/CookieManagement.js" type="text/javascript"></script>
+<script src="/js/core/jqGrid/jQGridState.js" type="text/javascript"></script>
+
+<!-- pager -->
+<link rel="stylesheet" type="text/css" media="all" href="/css/core/jqgrid/ui.jquery.pager.custom.css?ver=2011015" />
+<script src="/js/core/pager/jquery.pager.js?ver=20110104" type="text/javascript"></script>
+
+<!-- jqGrid custom.js-->
+<script src="/js/core/jqGrid/jquery.jqGrid.custom.js?ver=20110113" type="text/javascript"></script>
+
+<!-- equalheights.js-->
+<script type="text/javascript" src="/js/core/jquery.equalheights.js"></script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>증명서 미리보기</title>
+
+<script language="javascript" src="/js/haksa/ass/xcmm/ozinstall.js"></script>
+<script language="javascript" src="/js/haksa/ass/xcmm/ozviewer.js"></script>
+<script language="javascript" src="/js/haksa/ass/xcmm/xcmmDialog.js"></script>
+	
+<script language="javascript">
+// 증명서 출력 관련 오즈 함수	
+if(document.URL.indexOf('knou.ac.kr')!=-1) {document.domain='knou.ac.kr';}
+
+/*
+	var oz_url		= "http://devutil.knou.ac.kr";	
+	var oz_port		= "80";
+	
+	//var oz_url		= "http" + "://" + "certi.knou.ac.kr";
+	//var oz_port		= "80";
+	var oz_viewer		= "/ozviewer/";
+	var oz_version		= "2,2,2,0";
+	var oz_namespace	= "oz-servlet_ozviewer40";
+	var oz_serverurl	= oz_url + ":" + oz_port + "/oz/ozserver";
+	var oz_bcqreurl		= oz_url + ":" + oz_port + "/oz/bcqre";
+*/	
+
+	var oz_url		= 'https://util.knou.ac.kr';
+	var oz_port		= '443';
+	var oz_viewer		= "/ozviewer/";
+	var oz_version		= "2,2,2,0";
+	var oz_namespace	= "oz-servlet_ozviewer40";
+	//var oz_serverurl	= 'https://util.knou.ac.kr/oz/ozserver';	
+	var ozd_bcqreurl	= 'https://util.knou.ac.kr/oz/bcqreozd'; //oz_url + ":" + oz_port + "/oz/bcqreozd";	
+
+	
+	var reportName   = 'XDCE-D417-4780-5562';
+	//var reportName   = 'Bcqre';
+	var printCnt     = 1;
+	var aplcSeq      = '5821534';
+	var reportExName = '.ozr';
+	var category     = '/';
+
+	
+		var id			 = 3;
+		var gridObj		 = opener.$('#jqgrid2');		
+		
+	//var category     = '/certi/ozr';	
+		
+	function oz_activex_build (paramTag) {
+		for (var i = 0 ; i < paramTag.length ; i++)
+			document.write(paramTag[i]);
+	}
+
+	// 일반 OZ 접속시
+	/*
+	function ZTInstallEndCommand_ZTransferX(param1,param2) {
+		Create_Div(oz_url + ":" + oz_port + oz_viewer + "/");
+
+		Initialize_OZViewer  ("OZReportViewer"		,"CLSID:0DEF32F8-170F-46f8-B1FF-4BF7443F5F25", "100%", "100%");
+
+		Insert_OZViewer_Param("connection.servlet"	,oz_serverurl);
+		Insert_OZViewer_Param("connection.docserial"	,"default");
+
+		Insert_OZViewer_Param("connection.reportname"	,"/Bcqre.ozr");  // ==> (xxxx-xxxx-xxxx-xxxx.ozd) 
+
+		Insert_OZViewer_Param("viewer.isframe"		,"false");
+
+		Insert_OZViewer_Param("viewer.namespace"	,oz_namespace + "\\ozviewer");
+
+		Insert_OZViewer_Param("viewer.viewmode"		,"fittoframe");
+
+		Insert_OZViewer_Param("viewer.useoutborder"	,"false");
+
+		Insert_OZViewer_Param("viewer.usestatusbar"	,"false");
+
+		Insert_OZViewer_Param("viewer.bgcolor"		,"ffffff");
+
+		Insert_OZViewer_Param("viewer.printcommand"	,"true");
+
+		Insert_OZViewer_Param("information.debug"	,"true");
+
+		Start_OZViewer();
+	}
+	*/
+
+	function createObj(APLC_SEQ, ISUE_NOC, OCY_CNFM_NO) {
+		this.APLC_SEQ 	 = APLC_SEQ;
+		this.ISUE_NOC 	 = ISUE_NOC;
+		this.OCY_CNFM_NO = OCY_CNFM_NO;	
+	}	
+	
+	// BCQRE 접속시
+	function ZTInstallEndCommand_ZTransferX(param1,param2) {
+		/*
+		Create_Div(oz_url + ":" + oz_port + oz_viewer + "/");
+		Initialize_OZViewer  ("OZReportViewer"		,"CLSID:0DEF32F8-170F-46f8-B1FF-4BF7443F5F25", "100%", "100%");
+		
+		Insert_OZViewer_Param("connection.openfile"	,oz_bcqreurl);
+		//Insert_OZViewer_Param("connection.reportname"	,"Bcqre.ozr");
+		//Insert_OZViewer_Param("connection.extraparam"	,"ShowCustomPrintUI=true&ShowCopies=true&MaxCopies=1&docserial=default&category=/&reportname=Bcqre.ozr&BWidth=940&BMinHeight=77&BMaxHeight=500&BLeft=980&BTop=6470&CopyLeft=140&CopyTop=6470");
+		Insert_OZViewer_Param("connection.extraparam"	,"ShowCustomPrintUI=true&ShowCopies=true&MaxCopies=1&docserial=default&category=" + category + "&reportname="+ reportName + reportExName + "&BWidth=940&BMinHeight=77&BMaxHeight=500&BLeft=980&BTop=6470&CopyLeft=140&CopyTop=6470");
+		//Insert_OZViewer_Param("connection.extraparam"	,"ShowCustomPrintUI=true&ShowCopies=true&MaxCopies=1&docserial=default&category=/&reportname=Bcqre.ozr&BWidth=940&BMinHeight=77&BMaxHeight=500&BLeft=980&BTop=6470&CopyLeft=140&CopyTop=6470&ExternalMode=VBarcode&VPosX=175&VPosY=11&VTitle=KNOU");
+		
+		// bcqre		
+		Insert_OZViewer_Param("print.externalmoduleEx"	,"OZPrintBarCode_BCQre.dll");
+				
+		// bcqre + voiceye
+		//Insert_OZViewer_Param("print.externalmoduleEx"	,"OZPrintBarCode_BCQre_AD.dll");
+		
+		Insert_OZViewer_Param("viewer.isframe"		,"false");
+		Insert_OZViewer_Param("viewer.namespace"	,oz_namespace + "\\ozviewer");
+		Insert_OZViewer_Param("viewer.viewmode"		,"fittoframe");
+		Insert_OZViewer_Param("viewer.useoutborder"	,"false");
+		Insert_OZViewer_Param("viewer.usestatusbar"	,"false");
+		Insert_OZViewer_Param("viewer.bgcolor"		,"ffffff");
+		Insert_OZViewer_Param("viewer.printcommand"	,"true");
+		Insert_OZViewer_Param("toolbar.all"		,"false");
+		Insert_OZViewer_Param("information.debug"	,"true");
+		
+		//Insert_OZViewer_Param("connection.2dbarcodeurl"	,"dummy");		
+		//Insert_OZViewer_Param("viewer.progresscommand"	,"true");
+		//Insert_OZViewer_Param("viewer.errorcommand"		,"true");
+		//Insert_OZViewer_Param("viewer.exitcommand"		,"true");
+		//Insert_OZViewer_Param("viewer.useractioncommand"	,"true");		
+		
+		Start_OZViewer();
+		*/
+	}
+	
+
+	
+	function OZPrintCommand_OZReportViewer(msg, code, reportname, printername, printcopy, printedpage, printrange, username) {
+		//alert("result from printing job : " + msg + "\n\ncode : " + code + "\n\nreportname : " + reportname + "\n\nprintername : " + printername + "\n\nprintcopy : " + printcopy + "\n\nprintedpage : " + printedpage + "\n\nprintrange : " + printrange + "\n\nusername : " + username);
+		
+		fnPrintEnd(msg, code, reportname, printername, printcopy, printedpage, printrange, username);		
+	}
+
+
+	function fnPrintEnd(msg, code, reportname, printername, printcopy, printedpage, printrange, username)
+	{	
+		if (code==0)
+		{
+			// 특정증명서 출력완료(발급부수
+1f7a
+) DB에 업데이트 처리
+			////////////////////////////////////////////////////////////////
+			//alert('APLC_SEQ=' + ret.APLC_SEQ + '&ISUE_NOC=' + ret.ISUE_NOC + '&OCY_CNFM_NO='+ret.OCY_CNFM_NO);
+			
+			var gridData = new Array();  // 반드시 단일 객체라도 Array() 로 넘겨야 controller 에서 제대로 파싱할 수 있음.
+			gridData[0] = new createObj('5821534', '1', 'XDCE-D417-4780-5562');
+
+			// (O)위와 같이 하면 아래와 같이 서버에 값이 전달됨... 이렇게 전달되야 정상적으로 파싱됨.....
+			//[{&quot;APLC_SEQ&quot;:&quot;108&quot;,&quot;ISUE_NOC&quot;:&quot;1&quot;,&quot;OCY_CNFM_NO&quot;:&quot;XD09-9D16-68973-30907&quot;}]
+			
+			
+			// (X)단일 row라도 절대 아래와 같이 사용하지 말것... 
+			//var gridData = new createObj(ret.APLC_SEQ, ret.APLC_NOC, ret.OCY_CNFM_NO);
+			//서버에 요렇게 전달됨...==> {&quot;APLC_SEQ&quot;:&quot;108&quot;,&quot;ISUE_NOC&quot;:&quot;1&quot;,&quot;OCY_CNFM_NO&quot;:&quot;XD09-9D16-68973-30907&quot;}
+			
+			
+				$('#btn_print').hide();
+			
+			
+			fnAjax('/haksa/ass/bloc/ASSWicPrfAplcItmzRegister_update.data', 
+					'POS=&gridData=' + JSON.stringify(gridData),
+					null, 
+					'fnSetValue()');			
+		}
+		else if (code!=0)
+		{
+			$.xcmmDialog.alert('인쇄오류',msg);			
+		}
+	}
+
+
+	//증명서 발급 매수, 버튼 처리
+	function fnSetValue()
+	{	
+		
+		
+			var ret		 = gridObj.getRowData(id);	
+		
+			gridObj.setRowData(id, {PRG_ST_TXT:'발급완료'});
+			gridObj.setRowData(id, {ISUE_NOC:1});
+			opener.$('#btn_cancel').hide();
+		
+			
+
+		$.xcmmDialog.alert('인쇄완료','[증명서 발급이 완료되었습니다.]');
+	}
+
+
+	function fnAjax(url, data, obj, func)
+	{
+		$.ajax({
+			type: 'POST',
+			  //url: 'ASSDelvMethFeRegister_save.do',
+			  //data: 'POS=DOWN&MOD=SAVE&gridData='+gridDataJSON,
+			  url: url,
+			  data: data,
+			  dataType: "json",
+			  success : function(rc) {
+					//var bzDc = $("select[name='bzDc']").val(); 
+					//Write your code here
+					
+					if(rc.result.result == "true") {
+						eval(func);					
+					}
+					else parent.$.knouDialog.alert('알림','전산시스템사정으로 서비스불가 잠시후이용.');
+			  }
+		});
+	}
+	//////////////////////////////////////////////////////////////////////////////////	
+
+
+	/*
+	function OZProgressCommand_OZReportViewer(step, state, reportname) {
+		alert('하하하하 OZprogresscommand_OZReportViewer(step, state, reportname)');		
+	}
+	
+
+	
+	function OZErrorCommand_OZReportViewer(step, state, reportname) {
+		alert('OZerrorcommand 하하하하하');		
+	}
+
+	
+	function OZExitCommand_OZReportViewer() {
+		alert('OZExitCommand 하하하하하');		
+	}
+	
+
+	var iCnt = 0;
+	function OZUserActionCommand_OZReportViewer(type, attr) {
+		
+		if (iCnt++==0)
+			alert('OZUserActionCommand_OZReportViewer 하하하하하');		
+	}
+	*/
+			
+</script>
+
+<script>
+function fnPrintStart()
+{
+	////////////////////// 프린트 옵션(참고) ////////////////////////////////
+	//OZReportViewer.Script('print');
+	//OZReportViewer.ScriptEx('print','print.mode=false;print.copies=2;print.size=A4;print.printername=DEFAULT_PRINTER',';');	
+	//OZReportViewer.ScriptEx('print','print.mode=false;print.copies=2',';');
+	//OZReportViewer.ScriptEx('print','print.mode='+mode+';print.copies='+cnt,';');
+	
+	
+	/////////////////////// 잘됨(참고) ///////////////////////////////
+	//OZReportViewer.CreateReportEx('connection.openfile='+oz_bcqreurl+'\nconnection.extraparam=ShowCustomPrintUI=true&ShowCopies=true&MaxCopies=1&docserial=default&category=/certi/ozr&reportname=Bcqre.ozr&BWidth=940&BMinHeight=77&BMaxHeight=500&BLeft=980&BTop=6470&CopyLeft=140&CopyTop=6470\nprint.externalmoduleEx=OZPrintBarCode_BCQre.dll\nviewer.isframe=false\nviewer.namespace='+oz_namespace + "\\ozviewer");	
+	//OZReportViewer.ScriptEx('print','print.mode=false;print.copies=1;viewer.printcommand=true',';');
+
+
+	// 일반 OZ 접속
+	//OZReportViewer.CreateReportEx('connection.servlet='+oz_serverurl+'\nconnection.docserial=default\nconnection.reportname='+ category + '/' + reportName + reportExName + '\nviewer.isframe=false\nviewer.namespace='+oz_namespace + "\\ozviewer");
+	
+	// BCQRE 접속
+	//OZReportViewer.CreateReportEx('connection.openfile='+oz_bcqreurl+'\nconnection.extraparam=ShowCustomPrintUI=true&ShowCopies=true&MaxCopies=1&docserial=default&category='+ category + '&reportname='+ reportName + reportExName + '&BWidth=940&BMinHeight=77&BMaxHeight=500&BLeft=980&BTop=6150&CopyLeft=140&CopyTop=6150\nprint.externalmoduleEx=OZPrintBarCode_BCQre.dll\nviewer.isframe=false\nviewer.namespace='+oz_namespace + "\\ozviewer");
+
+	// 프린트
+	//OZReportViewer.Script('print');
+	//OZReportViewer.ScriptEx('print','print.mode=false;print.copies='+ printCnt +';viewer.printcommand=true',';');
+	OZReportViewer.ScriptEx('print','print.mode=true;print.copies='+ printCnt +';viewer.printcommand=true',';');
+}
+
+</script>
+
+<script language="javascript"  event="ZTInstallEndCommand(param1,param2)" for="ZTransferX">
+  //alert('뷰어설치완료');
+  //callReportViewer(); 
+  //alert('리포트호출완료'); 
+</script>
+
+<body onLoad="">
+
+<center>
+
+	<input type="button" id="btn_print" value="인쇄 " onclick="fnPrintStart();">
+
+	
+</center>
+
+<div id="InstallOZViewer">
+	<script language="javascript">
+		Initialize_ZT("ZTransferX"		,oz_url + ":" + oz_port + oz_viewer + "/ZTransferX.cab#version=" + oz_version, "CLSID:C7C7225A-9476-47AC-B0B0-FF3B79D55E67", "0", "0");
+		Insert_ZT_Param("download.Server"	,oz_url + oz_viewer + "/");
+		Insert_ZT_Param("download.Port"		,oz_port);
+		Insert_ZT_Param("download.Instruction"	,"ozrviewer.idf");
+		Insert_ZT_Param("install.Base"		,"<PROGRAMS>/Forcs");
+		Insert_ZT_Param("install.Namespace"	,oz_namespace);
+		Insert_ZT_Param("messagetitle"		,"Now installing OZViewer on your system. Please Wait...");
+		//Insert_ZT_Param("imageurl"		,"http://www.koica.go.kr/img/share/logo.gif");
+		Start_ZT(oz_url + ":" + oz_port + oz_viewer + "/");
+	</script>
+</div>
+
+<object id="OZReportViewer" width="100%" height="100%" CLASSID="CLSID:0DEF32F8-170F-46f8-B1FF-4BF7443F5F25">
+	<param name="connection.servlet" 	value="https://util.knou.ac.kr/oz/ozserver">        
+    <param name="connection.openfile"   value="https://util.knou.ac.kr/oz/bcqreozd">
+	<param name="connection.extraparam"	value="ShowCustomPrintUI=true&ShowCopies=true&MaxCopies=1&docserial=default&ozdpath=/app/oz/repository_files/certi/ozd/&ozd=XDCE-D417-4780-5562&BWidth=940&BMinHeight=77&BMaxHeight=500&BLeft=980&BTop=6150&CopyLeft=140&CopyTop=6150&ExternalMode=VBarcode&VPosX=171&VPosY=7&VTitle=KNOU">
+	<param name="print.externalmoduleEx"	value="OZPrintBarCode_BCQre_AD.dll">
+    <param name="viewer.isframe"    	value="false">    
+    <param name="viewer.namespace"		value="oz-servlet_ozviewer40\\ozviewer">
+    <param name="viewer.viewmode"		value="fittoframe">
+	<param name="viewer.useoutborder"	value="false">
+	<param name="viewer.usestatusbar"	value="false">
+	<param name="viewer.bgcolor"		value="ffffff">
+	<param name="viewer.printcommand"	value="true">
+	<param name="toolbar.open"			value ="false">
+	<param name="toolbar.save"			value ="false">
+	
+	<!-- <param name="print.externalmoduleEx" value="OZPrintBarCode_BCQre.dll"> -->
+	<param name="toolbar.print"			value ="false">	
+	<param name="print.lockopt" value="true"><!-- print.lockopt가 true로 설정된 경우 프린터 목록을 제외한 모든 옵션이 비활성화됩니다.  -->
+	<param name="print.copies" value="1">
+	
+	
+	<param name="toolbar.addmemo"			value ="false">
+	<param name="toolbar.savedm"			value ="false">
+	<param name="toolbar.inversepaper"			value ="false">
+	<param name="toolbar.etc"			value ="false">
+	
+	<param name="information.debug"		value ="true">
+</object>
+
+
+
+<center>
+
+	<input type="button" id="btn_print" value="인쇄 " onclick="fnPrintStart();">
+
+		
+</center>
+
+</body>
+
+<!-- <iframe name="child" src="/haksa/ass/xcmm/ASSCertiVoiceyeIns
+60
+tall.do" FRAMEBORDER=0 SCROLLING=no SRC="" width="1" height="0"></iframe> -->
+    
+</html>
