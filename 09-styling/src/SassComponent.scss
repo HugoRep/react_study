@@ -1,54 +1,41 @@
-// $red:#fa5353;
-// $orange:#fd7e14;
-// $yellow:#fcc419;
-// $green:#40c057;
-// $blue:#229af0;
-// $indigo:#5c7cfa;
-// $violet:#7950f2;
+@import './utils.scss';
 
-// // @mixin square($size) {
-// //     $calculated:32px*$size;
-// //     width:$calculated;
-// //     height:$calculated;
-// // }
-
-
-// .SassComponent{
-//     display:flex;
-//     .box{
-//         background:red;
-//         cursor:pointer;
-//         transition:all 0.3s ease-in;
-//         &.red{
-//             background:$red;
-            
-//         }
-//         &.orange{
-//             background:$yellow;
-//             //@include square(2);
-//         }
-//         &.yellow{
-//             background:$yellow;
-//             //@include square(3);
-//         }
-//         &.green{
-//             background:$green;
-//             //@include square(4);
-//         }
-//         &.blue{
-//             background:$blue;
-//             @include square(5);
-//         }
-//         &.indigo{
-//             background:$indigo;
-//             @include square(6);
-//         }
-//         &.violet{
-//             background:$violet;
-//             @include square(7);
-//         }
-//         &:hover{
-//             background:black;
-//         }
-//     }
-// }
+.SassComponent {
+    display:flex;
+    .box{
+        background:red;
+        cursor: pointer;
+        transition:all 0.3s ease-in;
+        &.red{
+            background:$red;
+            @include square(1);
+        }
+        &.orange{
+            background:$orange;
+            @include square(2);
+        }
+        &.yellow{
+            background:$yellow;
+            @include square(3);
+        }
+        &.green{
+            background:$green;
+            @include square(4);
+        }
+        &.blue{
+            background:$blue;
+            @include square(5);
+        }
+        &.indigo{
+            background:$indigo;
+            @include square(6);
+        }
+        &.violet{
+            background:$violet;
+            @include square(7);
+        }
+        &:hover{
+            background:black;
+        }
+    }
+}
