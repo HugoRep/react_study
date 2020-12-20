@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import './SassComponent.scss';
 import SassComponent from './SassComponent';
+import CSSModule from './CSSModule';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
     // </div>
     <div>
       <SassComponent></SassComponent>
+      <CSSModule></CSSModule>
     </div>
   );
 }
